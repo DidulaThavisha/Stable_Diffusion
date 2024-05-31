@@ -4,6 +4,7 @@ import torch.nn.functional as F
 from attention import SelfAttention
 
 
+
 class VAE_ResidualBlock(nn.Module):
     def __init__(self, in_channel, out_channel) -> None:
         super().__init__()
