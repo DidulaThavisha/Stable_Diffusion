@@ -19,6 +19,7 @@ class Encoder(nn.Module):
             nn.Conv2d(512, 512, kernel_size=3, stride=2, padding=0),                        # (B, 512, H/8, H/8)
             VAE_ResidualBlock(512, 512),                                                    # (B, 512, H/8, H/8)
             VAE_ResidualBlock(512, 512),                                                    # (B, 512, H/8, H/8)
+            VAE_ResidualBlock(512, 512),                                                    # (B, 512, H/8, H/8)
             VAE_AttentionBlock(512),                                                   # (B, 512, H/8, H/8)
             VAE_ResidualBlock(512, 512),                                                    # (B, 512, H/8, H/8)
             nn.GroupNorm(32, 512),                                                          # (B, 512, H/8, H/8)

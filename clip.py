@@ -49,8 +49,9 @@ class CLIP(nn.Module):
         self.layer_norm = nn.LayerNorm(768)
 
     def foward(self, x: torch.Tensor):
-        x = x.to(torch.long)  # Because vocab indices
-        x = self.embedding(x)
-        x = self.layers(x)
-        x = self.layer_norm(x)
+        # x = (B, T)
+        x = x.to(torch.long)  # Because vocab indices               
+        x = self.embedding(x)                                               # (B, T, C)
+        x = self.layers(x)                                                  # (B, T, C)
+        x = self.layer_norm(x)                                              # (B, T, C) C = 768 
         return x
